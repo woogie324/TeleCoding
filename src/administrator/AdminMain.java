@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import dao.ProductDAO;
+import run.MovieInfoMain;
 
 public class AdminMain {
 
@@ -24,6 +25,7 @@ public class AdminMain {
 		
 		PrintMembers printMembers = new PrintMembers();
 		ProductManage prodManage = new ProductManage();
+		MovieInfoMain movieManage = new MovieInfoMain();
 		
 		// 메뉴 선택 시 실행되는 메소드
 		switch(num) {
@@ -34,6 +36,7 @@ public class AdminMain {
 			prodManage.productManage();
 			break;
 		case 3 :
+			movieManage.main(null);
 			break;
 		default : 
 		}
