@@ -82,7 +82,7 @@ public class AdminMain extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, adminMain, 영화관리);
+//				ChangePanel.changePanel(mf, adminMain, 회원관리);
 			}
 		});
 		
