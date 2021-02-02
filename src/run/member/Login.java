@@ -25,19 +25,6 @@ public class Login extends JPanel {
 	private JTextField idText;
 	private JPasswordField pwText;
 	private MemberManager memberManager = new MemberManager();
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Login window = new Login();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 	
 	public Login(MainFrame mf) {
 		this.mf = mf;
@@ -47,16 +34,16 @@ public class Login extends JPanel {
 		login.setBounds(0, 0, 1184, 820);
 		login.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(300, 200, 600, 400);
-		login.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel white = new JPanel();
+		white.setBackground(new Color(255, 255, 255));
+		white.setBounds(300, 200, 600, 400);
+		login.add(white);
+		white.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
-		lblNewLabel.setBounds(272, 85, 81, 41);
-		panel_1.add(lblNewLabel);
+		JLabel title = new JLabel("Login");
+		title.setFont(new Font("굴림", Font.BOLD, 30));
+		title.setBounds(272, 85, 81, 41);
+		white.add(title);
 		
 		// Label
 
@@ -64,42 +51,42 @@ public class Login extends JPanel {
 		JLabel idLabel = new JLabel("ID");
 		idLabel.setFont(new Font("굴림", Font.BOLD, 20));
 		idLabel.setBounds(191, 153, 31, 25);
-		panel_1.add(idLabel);
+		white.add(idLabel);
 		
 		JLabel pwLabel = new JLabel("PW");
 		pwLabel.setFont(new Font("굴림", Font.BOLD, 20));
 		pwLabel.setBounds(191, 204, 32, 25);
-		panel_1.add(pwLabel);
+		white.add(pwLabel);
 		
 		// Text
 		
 		idText = new JTextField();
 		idText.setBounds(235, 155, 200, 25);
-		panel_1.add(idText);
+		white.add(idText);
 		idText.setColumns(20);
 		
 		pwText = new JPasswordField();
 		pwText.setColumns(20);
 		pwText.setBounds(235, 204, 200, 25);
-		panel_1.add(pwText);
+		white.add(pwText);
 		
 		// Button
 		
 		JButton btnSearchId = new JButton("ID찾기");
 		btnSearchId.setBounds(181, 239, 80, 25);
-		panel_1.add(btnSearchId);
+		white.add(btnSearchId);
 		
 		JButton btnSearchPw = new JButton("PW찾기");
 		btnSearchPw.setBounds(273, 239, 80, 25);
-		panel_1.add(btnSearchPw);
+		white.add(btnSearchPw);
 		
 		JButton btnJoin = new JButton("JOIN");
 		btnJoin.setBounds(365, 240, 80, 25);
-		panel_1.add(btnJoin);
+		white.add(btnJoin);
 		
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.setBounds(181, 274, 264, 25);
-		panel_1.add(btnLogin);
+		white.add(btnLogin);
 		
 		 // Anonymous Class
         btnSearchId.addActionListener(new ActionListener() {

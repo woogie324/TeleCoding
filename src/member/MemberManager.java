@@ -1,6 +1,7 @@
 package member;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import dao.MemberDAO;
 import dto.MemberDTO;
@@ -41,8 +42,8 @@ public class MemberManager {
 		dao.delete(memberInfo);
 	}
 
-	public void update(MemberDTO memberInfo) {
-		
+	public void update(String id, String pw, String name, String birth, char gender, String addr, Date date) {
+		MemberDTO memberInfo = new MemberDTO(id,pw,name,birth,gender,addr,date);
 		dao.update(memberInfo);
 	}
 

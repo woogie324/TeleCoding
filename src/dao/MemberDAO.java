@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import dto.MemberDTO;
@@ -205,10 +206,9 @@ public class MemberDAO {
 		
 		String id = memberInfo.getId();
 		ArrayList<String> show = new ArrayList<>();
-		
 		for(PaymentDTO p : Payment()) {
 			if(id.equals(p.getNickName())) {
-				show.add(p.getMovie());
+				show.add(p.getMovie() + ", " + p.getToDay());
 			}
 		}
 		

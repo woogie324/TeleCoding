@@ -153,25 +153,25 @@ public class MemberMain {
 														System.out.print("변경할 pw : ");
 														pw = sc.nextLine();
 														memberInfo.setPw(pw);
-														memberManager.update(memberInfo);
+//														memberManager.update(memberInfo);
 														break;
 													case 2 : 
 														System.out.print("변경할 name : ");
 														name = sc.nextLine();
 														memberInfo.setName(name);
-														memberManager.update(memberInfo);
+//														memberManager.update(memberInfo);
 														break;
 													case 3 : 
 														System.out.print("변경할 gender : ");
 														gender = sc.nextLine().charAt(0);
 														memberInfo.setGender(gender);
-														memberManager.update(memberInfo);
+//														memberManager.update(memberInfo);
 														break;
 													case 4 : 
 														System.out.print("변경할 addr : ");
 														addr = sc.nextLine();
 														memberInfo.setAddr(addr);
-														memberManager.update(memberInfo);
+//														memberManager.update(memberInfo);
 														break;
 													case 0 : 
 														System.out.println("취소되었습니다."); return;

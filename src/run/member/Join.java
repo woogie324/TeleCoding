@@ -35,19 +35,6 @@ public class Join extends JPanel{
 	private JTextField addrText;
 	private JPasswordField pwText;
 	private JPasswordField pwCheckText;
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Join window = new Join();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 	
 	public Join(MainFrame mf) {
 		this.mf = mf;
@@ -56,115 +43,111 @@ public class Join extends JPanel{
 		join.setBounds(0, 0, 1184, 820);
 		join.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(300, 130, 600, 500);
-		join.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel white = new JPanel();
+		white.setBackground(new Color(255, 255, 255));
+		white.setBounds(300, 130, 600, 500);
+		join.add(white);
+		white.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("회원가입");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
-		lblNewLabel.setBounds(246, 79, 127, 41);
-		panel_1.add(lblNewLabel);
+		JLabel title = new JLabel("회원가입");
+		title.setFont(new Font("굴림", Font.BOLD, 30));
+		title.setBounds(246, 79, 127, 41);
+		white.add(title);
 		
 		// Label 
+		JLabel idLabel = new JLabel("아이디");
+		idLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		idLabel.setBounds(110, 148, 98, 25);
+		white.add(idLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("아이디");
-		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(110, 148, 98, 25);
-		panel_1.add(lblNewLabel_1);
+		JLabel pwLabel = new JLabel("비밀번호");
+		pwLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		pwLabel.setBounds(110, 185, 98, 25);
+		white.add(pwLabel);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("비밀번호");
-		lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_1.setBounds(110, 185, 98, 25);
-		panel_1.add(lblNewLabel_1_1);
+		JLabel pwCheckLabel = new JLabel("비밀번호 확인");
+		pwCheckLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		pwCheckLabel.setBounds(110, 220, 98, 25);
+		white.add(pwCheckLabel);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("비밀번호 확인");
-		lblNewLabel_1_2.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_2.setBounds(110, 220, 98, 25);
-		panel_1.add(lblNewLabel_1_2);
+		JLabel nameLabel = new JLabel("이름");
+		nameLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		nameLabel.setBounds(110, 255, 98, 25);
+		white.add(nameLabel);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("이름");
-		lblNewLabel_1_1_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_1_1.setBounds(110, 255, 98, 25);
-		panel_1.add(lblNewLabel_1_1_1);
+		JLabel birthLabel = new JLabel("생년월일");
+		birthLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		birthLabel.setBounds(110, 290, 98, 25);
+		white.add(birthLabel);
 		
-		JLabel lblNewLabel_1_1_2 = new JLabel("생년월일");
-		lblNewLabel_1_1_2.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_1_2.setBounds(110, 290, 98, 25);
-		panel_1.add(lblNewLabel_1_1_2);
+		JLabel genderLabel = new JLabel("성별");
+		genderLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		genderLabel.setBounds(110, 325, 98, 25);
+		white.add(genderLabel);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("성별");
-		lblNewLabel_1_2_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_2_1.setBounds(110, 325, 98, 25);
-		panel_1.add(lblNewLabel_1_2_1);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("주소");
-		lblNewLabel_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1.setBounds(110, 360, 98, 25);
-		panel_1.add(lblNewLabel_1_1_1_1);
+		JLabel addrLabel = new JLabel("주소");
+		addrLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		addrLabel.setBounds(110, 360, 98, 25);
+		white.add(addrLabel);
 		
 		// Text
-		
 		idText = new JTextField();
 		idText.setBounds(220, 148, 200, 25);
-		panel_1.add(idText);
 		idText.setColumns(20);
+		white.add(idText);
 		
 		pwText = new JPasswordField();
 		pwText.setColumns(20);
 		pwText.setBounds(220, 185, 200, 25);
-		panel_1.add(pwText);		
+		white.add(pwText);		
 		
 		pwCheckText = new JPasswordField();
 		pwCheckText.setColumns(20);
 		pwCheckText.setBounds(220, 220, 200, 25);
-		panel_1.add(pwCheckText);
+		white.add(pwCheckText);
 		
 		nameText = new JTextField();
 		nameText.setColumns(20);
 		nameText.setBounds(220, 255, 200, 25);
-		panel_1.add(nameText);
+		white.add(nameText);
 		
 		birthText = new JTextField("ex)20210101",20);
 		birthText.setBounds(220, 290, 200, 25);
-		panel_1.add(birthText);
+		white.add(birthText);
 		
 		addrText = new JTextField();
 		addrText.setColumns(20);
 		addrText.setBounds(220, 360, 200, 25);
-		panel_1.add(addrText);
+		white.add(addrText);
 		
 		// Radio
-		
 		JRadioButton btnM = new JRadioButton("남자");
 		btnM.setBackground(Color.WHITE);
 		btnM.setBounds(220, 326, 80, 23);
-		panel_1.add(btnM);
+		white.add(btnM);
 		btnM.setSelected(true);
 		
 		JRadioButton btnW = new JRadioButton("여자");
 		btnW.setBackground(Color.WHITE);
 		btnW.setBounds(340, 326, 80, 23);
-		panel_1.add(btnW);
+		white.add(btnW);
 		
 		ButtonGroup gdButton = new ButtonGroup();
         gdButton.add(btnM);
         gdButton.add(btnW);
 		
 		// Button
-		
 		JButton btnIdCheack = new JButton("중복확인");
 		btnIdCheack.setBounds(426, 150, 90, 25);
-		panel_1.add(btnIdCheack);
+		white.add(btnIdCheack);
 		
 		JButton btnPwCheack = new JButton("확인");
 		btnPwCheack.setBounds(426, 220, 90, 25);
-		panel_1.add(btnPwCheack);
+		white.add(btnPwCheack);
 		
 		JButton btnJoin = new JButton("회원가입");
 		btnJoin.setBounds(110, 412, 396, 25);
-		panel_1.add(btnJoin);
+		white.add(btnJoin);
 		
 		// Anonymous Class
         btnM.addActionListener(new ActionListener() {
