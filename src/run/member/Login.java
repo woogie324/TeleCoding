@@ -16,6 +16,7 @@ import dto.MemberDTO;
 import member.MemberManager;
 import run.ChangePanel;
 import run.MainFrame;
+import run.admin.AdminMain;
 
 public class Login extends JPanel {
 
@@ -133,11 +134,15 @@ public class Login extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	MemberDTO memberInfo = memberManager.login(idText.getText(), pwText.getText());
-            	if(memberInfo != null) {
-            		JOptionPane.showMessageDialog(null, "로그인 성공");
-            		ChangePanel.changePanel(mf, login, new Main(mf, memberInfo));
+            	if(idText.getText().equals("admin") && pwText.getText().equals("admin")) {
+            		ChangePanel.changePanel(mf, login, new AdminMain(mf));
             	} else {
-            		JOptionPane.showMessageDialog(null, "ID 혹은 PW가 다릅니다.");
+	            	if(memberInfo != null) {
+	            		JOptionPane.showMessageDialog(null, "로그인 성공");
+	            		ChangePanel.changePanel(mf, login, new Main(mf, memberInfo));
+	            	} else {
+	            		JOptionPane.showMessageDialog(null, "ID 혹은 PW가 다릅니다.");
+	            	}
             	}
             }
             
