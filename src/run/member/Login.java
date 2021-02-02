@@ -135,10 +135,10 @@ public class Login extends JPanel {
             	MemberDTO memberInfo = memberManager.login(idText.getText(), pwText.getText());
             	if(memberInfo != null) {
             		JOptionPane.showMessageDialog(null, "로그인 성공");
+            		ChangePanel.changePanel(mf, login, new Main(mf, memberInfo));
             	} else {
             		JOptionPane.showMessageDialog(null, "ID 혹은 PW가 다릅니다.");
             	}
-//            	ChangePanel.changePanel(mf, login, new mainPage(mf));
             }
             
         });
