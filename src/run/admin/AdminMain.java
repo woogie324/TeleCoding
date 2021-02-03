@@ -2,10 +2,13 @@ package run.admin;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -13,6 +16,8 @@ import javax.swing.SwingConstants;
 import dto.MemberDTO;
 import run.ChangePanel;
 import run.MainFrame;
+import run.member.Login;
+import run.member.*;
 
 public class AdminMain extends JPanel{
 	
@@ -78,6 +83,13 @@ public class AdminMain extends JPanel{
 		userName.setBounds(777, 42, 323, 48);
 		adminMain.add(userName);
 		
+		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.setFont(new Font("굴림", Font.BOLD, 13));
+		btnLogout.setBackground(Color.WHITE);
+		btnLogout.setForeground(Color.BLACK);
+		btnLogout.setBounds(100, 54, 121, 36);
+		adminMain.add(btnLogout);
+		
 		memberLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -101,6 +113,16 @@ public class AdminMain extends JPanel{
 //				ChangePanel.changePanel(mf, adminMain, 상품관리);
 			}
 		});
+
+		btnLogout.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	
+            	ChangePanel.changePanel(mf, adminMain, new Login(mf));
+            }
+            
+        });
 
 	}
 }

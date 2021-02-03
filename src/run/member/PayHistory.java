@@ -160,7 +160,7 @@ public class PayHistory extends JPanel{
 		
 		// JList
 		ArrayList<PaymentDTO> payment = memberManager.showPayment(memberInfo);
-		System.out.println(memberManager.showPayment(memberInfo).toString());
+		
 		JList list = new JList(memberManager.showMovie(memberInfo).toArray());
 		list.setBackground(Color.WHITE);
 		
