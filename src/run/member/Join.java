@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -149,6 +151,11 @@ public class Join extends JPanel{
 		btnJoin.setBounds(110, 412, 396, 25);
 		white.add(btnJoin);
 		
+		JLabel back = new JLabel("<-Back");
+		back.setFont(new Font("굴림", Font.BOLD, 16));
+		back.setBounds(12, 10, 71, 28);
+		white.add(back);
+		
 		// Anonymous Class
         btnM.addActionListener(new ActionListener() {
 
@@ -223,6 +230,14 @@ public class Join extends JPanel{
             }
             
         });
+        
+        back.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				ChangePanel.changePanel(mf, join, new Login(mf));
+			}
+		});
         
 	}
 }

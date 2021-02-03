@@ -208,7 +208,7 @@ public class MemberDAO {
 		ArrayList<String> show = new ArrayList<>();
 		for(PaymentDTO p : Payment()) {
 			if(id.equals(p.getNickName())) {
-				show.add(p.getMovie() + ", " + p.getToDay());
+				show.add(p.getMovie() + "," + p.getToDay());
 			}
 		}
 		
