@@ -18,6 +18,7 @@ import java.util.Scanner;
 import dto.ConditionDTO;
 import dto.PaymentDTO;
 import dto.ProductDTO;
+import run.member.payment.test;
 import ticketingAndPayment.MyOutputStream;
 
 public class PaymentDAO {
@@ -38,6 +39,88 @@ public class PaymentDAO {
 	ArrayList showTime = new ArrayList(); // 시간
 	ArrayList seat = new ArrayList(); // 좌석
 
+	private String movieName1;
+	private int moviePrice1;
+	private String movieArea1;
+	private String moviedata1;
+	private String movieTime1;
+	private String movieSeat1;
+	private Double cardDiscount;
+	private String cardName;
+	private String toDay;
+	private String product;
+	private int productPrice;
+	private int pay;
+	private int ticketPrice;
+	private int sum;
+	
+
+	
+	public void Paymentrun1(String movieName,int moviePrice) {
+		movieName1 = movieName;
+		moviePrice1 = moviePrice;
+	}
+	public void Paymentrun2(String movieArea) {
+		movieArea1 = movieArea;
+	}
+	public void Paymentrun3(String moviedata) {
+		moviedata1 = moviedata;
+	}
+	public void Paymentrun4(String movieTime) {
+		movieTime1 = movieTime;
+	}
+	public void Paymentrun5(String movieSeat) {
+		movieSeat1 += movieSeat + " ";
+		moviePrice1 += sum;
+		System.out.println(movieName1+moviePrice1+"zzz");
+	}
+	public void Paymentrun6(String product,int productPrice) {
+		product += product + " ";
+		productPrice += productPrice;
+		
+	}
+	public void toDay() {
+		pay = ticketPrice + productPrice;
+		pay = (int)(pay - (pay * (cardDiscount / 100)));
+		
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Calendar time = Calendar.getInstance();
+		toDay = format1.format(time.getTime())+"";
+		
+	}
+	
+	/* 영화정보 입출력 */
+	public void print(String nickName, String movie, String area, String date, String time, String seat, String viewer,
+			int ticketPrice, String product, String productPrice, String cardName, String cardDiscount, int pay,
+			String toDay) {
+		ObjectOutputStream objOut = null;
+		try {
+
+			if (new File("DB/payment.txt").exists()) {
+				/* 기존에 파일이 있을 경우 */
+				objOut = new MyOutputStream(new BufferedOutputStream(new FileOutputStream("DB/payment.txt", true)));
+			} else {
+				/* 기존에 파일이 없을 경우 */
+				objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("DB/payment.txt")));
+			}
+			PaymentDTO paDto = new PaymentDTO("송준원", movie, area, date, time, seat, viewer, ticketPrice, product,productPrice, cardName, cardDiscount, pay, toDay);
+			objOut.writeObject(paDto);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (objOut != null) {
+				try {
+					objOut.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	
 	/* 상품목록 */
 	public ArrayList ProductListName() {
 
@@ -56,7 +139,6 @@ public class PaymentDAO {
 
 		} catch (EOFException e) {
 
-			System.out.println("파일 읽기 완료!");
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
@@ -71,6 +153,11 @@ public class PaymentDAO {
 		return ProductListName;
 	}
 
+	/* 상품 가격 */
+	public ArrayList productPrice() {
+		return ProductListPrice;
+	}
+	
 	/* 영화 관력 데이터 가져오기 */
 	public ArrayList MovieList() { // 영화 이름 리턴
 		ObjectInputStream objIn = null;
@@ -251,60 +338,24 @@ public class PaymentDAO {
 		return productchoice;
 	}
 
-	public int productPrice() {
-		return priceProduct;
-	}
+	
 
 	/* card */
-	public Double cardDiscount(int choiceCard) {
+	public void cardDiscount(int choiceCard) {
+		String[] cardListName = { "카카오뱅크", "우리은행", "기업은행", "삼성페이" };
 		Double[] cardListDiscount = { 3.0, 5.0, 1.0, 2.0 };
-
-		return cardListDiscount[choiceCard - 1];
-	}
-
-	/* 현재 시간 + 이름 */
-	public String toDay() {
+		cardDiscount = cardListDiscount[choiceCard];
+		cardName = cardListName[choiceCard];
+		pay = ticketPrice + productPrice;
+		pay = (int)(pay - (pay * (cardDiscount / 100)));
+		
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
 		Calendar time = Calendar.getInstance();
-
-		String formatTime = format1.format(time.getTime()) + "송준원";
-		return formatTime;
+		toDay = format1.format(time.getTime())+"";
 	}
 
-	/* 영화정보 입출력 */
-	public String print(String nickName, String movie, String area, String time, String seat, String viewer,
-			int ticketPrice, String product, String productPrice, String cardName, String cardDiscount, int pay,
-			String toDay) {
 
-		ObjectOutputStream objOut = null;
-		String print = "예매완료";
-		try {
 
-			if (new File("DB/test.txt").exists()) {
-				/* 기존에 파일이 있을 경우 */
-				objOut = new MyOutputStream(new BufferedOutputStream(new FileOutputStream("DB/payment.txt", true)));
-			} else {
-				/* 기존에 파일이 없을 경우 */
-				objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("DB/payment.txt")));
-			}
-			PaymentDTO paDto = new PaymentDTO(nickName, movie, area, time, seat, viewer, ticketPrice, product,
-					productPrice, cardName, cardDiscount, pay, toDay);
-			objOut.writeObject(paDto);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (objOut != null) {
-				try {
-					objOut.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return print;
-	}
+
 
 }

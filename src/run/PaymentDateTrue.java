@@ -7,10 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.List;
 
-import dto.ConditionDTO;
-import dto.MemberDTO;
+import dto.PaymentDTO;
 import dto.ProductDTO;
 
 public class PaymentDateTrue {
@@ -20,20 +18,18 @@ public class PaymentDateTrue {
 		
 		
 		ObjectInputStream objIn = null;
-		ArrayList<ProductDTO> ProductList = new ArrayList<ProductDTO>();
+		ArrayList<PaymentDTO> ProductList = new ArrayList<PaymentDTO>();
 		ArrayList ProductListName = new ArrayList();
 		ArrayList ProductListPrice = new ArrayList();
 	
 		try {
-			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("DB/productDB.txt")));
+			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("DB/payment.txt")));
 			
 			int i = 0;
 			while(true) {
-				ProductDTO m = (ProductDTO)objIn.readObject();
-				System.out.println(m.getProductName());
+				PaymentDTO m = (PaymentDTO)objIn.readObject();
+				System.out.println(m);
 				ProductList.add(m);
-				ProductListName.add(m.getProductName());
-				ProductListPrice.add(m.getProductPrice());
 			}
 			
 			
@@ -57,14 +53,7 @@ public class PaymentDateTrue {
 		for(int i = 0; i < ProductList.size(); i++) {
 			System.out.println(ProductList.get(i));
 		}
-		System.out.println("==============");
-		for(int i = 0; i < ProductListName.size(); i++) {
-			System.out.println(ProductListName.get(i));
-		}
-		System.out.println("==============");
-		for(int i = 0; i < ProductListPrice.size(); i++) {
-			System.out.println(ProductListPrice.get(i));
-		}
+
 		
 	}
 
