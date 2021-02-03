@@ -161,7 +161,9 @@ public class PayHistory extends JPanel{
 		// JList
 		ArrayList<PaymentDTO> payment = memberManager.showPayment(memberInfo);
 		
-		JList list = new JList(memberManager.showMovie(memberInfo).toArray());
+		@SuppressWarnings("unchecked")
+		JList<Object> list = new JList<Object>(memberManager.showMovie(memberInfo).toArray());
+		list.setVisibleRowCount(20);
 		list.setBackground(Color.WHITE);
 		
 		list.setBorder(BorderFactory.createLineBorder(Color.black, 1));

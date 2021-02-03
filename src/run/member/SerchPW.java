@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 import member.MemberManager;
 import java.awt.Color;
 
-class SerchPW extends JFrame {
+public class SerchPW extends JFrame {
 
 	private MemberManager memberManager = new MemberManager();
 	
-	SerchPW() {
+	public SerchPW() {
         setTitle("PW 찾기");
 
         

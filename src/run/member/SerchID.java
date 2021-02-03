@@ -1,6 +1,6 @@
 package run.member;
 
-import java.awt.GridLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,13 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import member.MemberManager;
-import java.awt.Color;
 
-class SerchID extends JFrame {
+public class SerchID extends JFrame {
 
 	private MemberManager memberManager = new MemberManager();
 	
-	SerchID() {
+	public SerchID() {
         setTitle("ID 찾기");
 
         
