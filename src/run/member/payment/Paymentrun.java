@@ -30,7 +30,7 @@ import dto.PaymentDTO;
 
 public class Paymentrun extends JPanel {
 
-	private test test;
+	private MainFrame mf;
 	private JPanel Payment;
 	/* 배열 */
 	ArrayList MovieList = new ArrayList();
@@ -66,14 +66,14 @@ public class Paymentrun extends JPanel {
 	int movieNumber3 = 0;
 	BufferedImage img = null;
 	
-	public Paymentrun(test test) {
+	public Paymentrun(MainFrame mf) {
 		
-		this.test = test;
+		this.mf = mf;
 		this.setSize(1200, 800);
 		this.Payment = this;
 		
-		test.setSize(1200, 800);
-		test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		mf.setSize(1200, 800);
+		mf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		try {
 			img = ImageIO.read(new File("img/movie.jpg"));
@@ -693,7 +693,11 @@ public class Paymentrun extends JPanel {
 			}
 		});
 		
-		test.add(Payment);
+		mf.add(Payment);
+	}
+
+	public Paymentrun(movieInformation.testgui.MainFrame mf2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	class MyPanel extends JPanel {

@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 
 
 
-public class test  extends JFrame{
+public class MainFrame  extends JFrame{
 
-	public test() {
+	public MainFrame() {
 
 		this.setBounds(200,100,1200,850);
 	
