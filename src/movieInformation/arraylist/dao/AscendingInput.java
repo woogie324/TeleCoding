@@ -32,6 +32,7 @@ public class AscendingInput {
       
       } catch (EOFException e) {
       
+         System.out.println("파일 읽기 완료!");
       } catch (FileNotFoundException e) {
          
          e.printStackTrace();
@@ -44,14 +45,15 @@ public class AscendingInput {
       }
       
       /* 읽어온 데이터를 담은 배열을 출력해 보자 */
-      System.out.println("======= 이번달 영화 순위 =======");
+      System.out.println("==============");
 
       movieList.sort(new AscendingVisiters());		
       int i = 0;
 		for(MovieDTO b : movieList) {
 			i += 1;
-			System.out.println(i + "위 : "+ b.getMovie() + ", 누적 관람 수 : " + b.getVisitors());
+			System.out.println(i + "위 : "+ b.getMovie() + ", 조회수 : " + b.getVisitors());
 		}
 
-	}		// method 종료.
-}			// Class 종료.
+   }
+
+}
