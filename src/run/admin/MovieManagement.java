@@ -207,8 +207,8 @@ public class MovieManagement {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				new NowUpdate(((String) nowList.getSelectedValue()));
 				
-//				((String) nowList.getSelectedValue())
 			}
 		});
 		btnDelNow.addActionListener(new ActionListener() {
@@ -234,7 +234,7 @@ public class MovieManagement {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-//				((String) exList.getSelectedValue())
+				new ExUpdate(((String) exList.getSelectedValue()));
 			}
 		});
 		btnDelEX.addActionListener(new ActionListener() {
