@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 import dto.MemberDTO;
 import run.ChangePanel;
 import run.MainFrame;
+import run.member.payment.Paymentrun;
+
 
 public class Main extends JPanel{
 	
@@ -126,7 +128,7 @@ public class Main extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, main, 예매페이지);
+				ChangePanel.changePanel(mf, main, new Paymentrun(mf, memberInfo));
 			}
 		});
 		

@@ -26,12 +26,19 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import dao.PaymentDAO;
+import dto.MemberDTO;
 import dto.PaymentDTO;
+import run.ChangePanel;
+import member.MemberManager;
+import run.ChangePanel;
+import run.MainFrame;
+import run.member.Main;
 
 public class Paymentrun extends JPanel {
 
 	private MainFrame mf;
-	private JPanel Payment;
+	private JPanel Paymentrun;
+
 	/* 배열 */
 	ArrayList MovieList = new ArrayList();
 	ArrayList areaList = new ArrayList();
@@ -44,7 +51,7 @@ public class Paymentrun extends JPanel {
 	
 	PaymentDAO dao = new PaymentDAO();
 
-	String nickName = "송준원";
+	String nickName;
 	String movie = null; // 영화 이름 변수
 	int movidPrice = 0; // 영화 가격 변수
 	String movidArea = null; // 영화 장소 변수
@@ -66,15 +73,13 @@ public class Paymentrun extends JPanel {
 	int movieNumber3 = 0;
 	BufferedImage img = null;
 	
-	public Paymentrun(MainFrame mf) {
-		
+	
+	public Paymentrun(MainFrame mf, MemberDTO memberInfo) {
+		nickName =  memberInfo.getName();
 		this.mf = mf;
-		this.setSize(1200, 800);
-		this.Payment = this;
+		this.setSize(1200, 801);
+		this.Paymentrun = this;
 		
-		mf.setSize(1200, 800);
-		mf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
 		try {
 			img = ImageIO.read(new File("img/movie.jpg"));
 		} catch (IOException e) {
@@ -84,38 +89,38 @@ public class Paymentrun extends JPanel {
 		
 		MyPanel panel = new MyPanel();
 		panel.setBounds(0, 0, 1200, 850);
-		Payment.setLayout(null);
+		Paymentrun.setLayout(null);
 
 		int hight1 = 10;
 		int width1 = 240;
 
 		JLabel title1 = new JLabel("영화선택");
 		title1.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title1);
+		Paymentrun.add(title1);
 		hight1 += 80;
 		JLabel title2 = new JLabel("지역선택");
 		title2.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title2);
+		Paymentrun.add(title2);
 		hight1 += 80;
 		JLabel title3 = new JLabel("날짜선택");
 		title3.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title3);
+		Paymentrun.add(title3);
 		hight1 += 80;
 		JLabel title4 = new JLabel("시간선택");
 		title4.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title4);
+		Paymentrun.add(title4);
 		hight1 += 80;
 		JLabel title5 = new JLabel("좌석선택");
 		title5.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title5);
+		Paymentrun.add(title5);
 		hight1 += 90;
 		JLabel title6 = new JLabel("상품선택");
 		title6.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title6);
+		Paymentrun.add(title6);
 		hight1 += 110;
 		JLabel title7 = new JLabel("카드선택");
 		title7.setBounds(width1,hight1, 100, 50); //버튼 크기,위치 지정
-		Payment.add(title7);
+		Paymentrun.add(title7);
 		
 		MovieList = dao.MovieList();
 		areaList = dao.MovieListArea((String) MovieList.get(0));
@@ -135,7 +140,7 @@ public class Paymentrun extends JPanel {
 			btn1[i] = new JButton(List);//버튼 초기화
 			btn1[i].setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 			width += 150;
-			Payment.add(btn1[i]);
+			Paymentrun.add(btn1[i]);
 			btn1[i].setBackground(Color.WHITE);
 		}
 		
@@ -149,7 +154,7 @@ public class Paymentrun extends JPanel {
 			btn2[i].setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 			width += 150;
 			btn2[i].setBackground(Color.WHITE);
-			Payment.add(btn2[i]);
+			Paymentrun.add(btn2[i]);
 		}
 		/* 날짜 선택 */
 		width = 240;
@@ -161,7 +166,7 @@ public class Paymentrun extends JPanel {
 			btn3[i].setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 			width += 150;
 			btn3[i].setBackground(Color.WHITE);
-			Payment.add(btn3[i]);
+			Paymentrun.add(btn3[i]);
 		}
 		/* 시간 선택 */
 		JButton[] btn4 = new JButton[timeList.size()];
@@ -173,7 +178,7 @@ public class Paymentrun extends JPanel {
 			btn4[i].setBounds(width, hight, 150, 30); // 버튼 크기,위치 지정
 			width += 150;
 			btn4[i].setBackground(Color.WHITE);
-			Payment.add(btn4[i]);
+			Paymentrun.add(btn4[i]);
 		}
 		/* 좌석 선택 */
 		width = 240;
@@ -184,7 +189,7 @@ public class Paymentrun extends JPanel {
 			btn5[i] = new JButton(List);// 버튼 초기화
 			btn5[i].setBounds(width, hight, 150, 30); // 버튼 크기,위치 지정
 			width += 150;
-			Payment.add(btn5[i]);
+			Paymentrun.add(btn5[i]);
 			btn5[i].setBackground(Color.WHITE);
 		}
 		/* 상품 선택 */
@@ -200,7 +205,7 @@ public class Paymentrun extends JPanel {
 			prd[i]=new JButton(List);//버튼 초기화
 			prd[i].setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 			width += 150;
-			Payment.add(prd[i]);
+			Paymentrun.add(prd[i]);
 			prd[i].setBackground(Color.WHITE);
 		}
 		
@@ -214,31 +219,31 @@ public class Paymentrun extends JPanel {
 		card1=new JButton("카카오톡");//버튼 초기화
 		card1.setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 		width += 150;
-		Payment.add(card1);
+		Paymentrun.add(card1);
 		card1.setBackground(Color.WHITE);
 	
 		card2=new JButton("우리은행");//버튼 초기화
 		card2.setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 		width += 150;
-		Payment.add(card2);
+		Paymentrun.add(card2);
 		card2.setBackground(Color.WHITE);
 
 		card3=new JButton("기업은행");//버튼 초기화
 		card3.setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 		width += 150;
-		Payment.add(card3);
+		Paymentrun.add(card3);
 		card3.setBackground(Color.WHITE);
 
 		card4=new JButton("삼성페이");//버튼 초기화
 		card4.setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
-		Payment.add(card4);
+		Paymentrun.add(card4);
 		card4.setBackground(Color.WHITE);
 		
 		card4=new JButton("결재하기");//버튼 초기화
 		card4.setBounds(240,hight+80, 150, 30); //버튼 크기,위치 지정
-		Payment.add(card4);
+		Paymentrun.add(card4);
 		card4.setBackground(Color.WHITE);
-		Payment.add(panel);
+		Paymentrun.add(panel);
 		
 	
 		setVisible(true);
@@ -689,16 +694,19 @@ public class Paymentrun extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(movie+ " "+movidArea+ " "+date+ " "+ time + " "+seat+ " "+ticketPrice+ " "+cardName+ " "+cardDiscount+ " "+pay+ " "+toDay+" "+product+" "+productPrice);
-				dao.print(nickName, movie, movidArea, date, time, seat, viewer+"", ticketPrice, product, productPrice+"", cardName, cardDiscount+"", pay, toDay);
+//				dao.print(nickName, movie, movidArea, date, time, seat, viewer+"", ticketPrice, product, productPrice+"", cardName, cardDiscount+"", pay, toDay);
+				ChangePanel.changePanel(mf, Paymentrun, new Main(mf, memberInfo));
 			}
 		});
 		
-		mf.add(Payment);
+		mf.add(Paymentrun);
 	}
 
-	public Paymentrun(movieInformation.testgui.MainFrame mf2) {
-		// TODO Auto-generated constructor stub
-	}
+
+
+
+
+
 
 	class MyPanel extends JPanel {
 		public void paint(Graphics g) {
@@ -706,9 +714,4 @@ public class Paymentrun extends JPanel {
 		}
 	}
 
-	public String movie() {
-		return movie;		
-	}
-		
-	
 }
