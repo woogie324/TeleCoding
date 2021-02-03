@@ -110,7 +110,7 @@ public class Main extends JPanel{
             public void actionPerformed(ActionEvent e) {
             	
             	ChangePanel.changePanel(mf, main, new MemberInfoMod(mf, memberInfo));
-            }
+            } 
             
         });
 		
