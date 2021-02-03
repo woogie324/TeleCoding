@@ -19,12 +19,12 @@ import run.MainFrame;
 import run.member.Login;
 import run.member.*;
 
-public class AdminMain extends JPanel{
+public class Admin_MainPg extends JPanel{
 	
 	private MainFrame mf;
 	private JPanel adminMain;
 
-	public AdminMain(MainFrame mf) {
+	public Admin_MainPg(MainFrame mf) {
 		this.mf = mf;
 		this.adminMain = this;
 		
@@ -94,7 +94,7 @@ public class AdminMain extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, adminMain, 회원관리);
+				ChangePanel.changePanel(mf, adminMain, new Admin_AllMembers(mf));
 			}
 		});
 		
@@ -110,7 +110,7 @@ public class AdminMain extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, adminMain, 상품관리);
+				ChangePanel.changePanel(mf, adminMain, new Admin_ProdMngPg(mf));
 			}
 		});
 

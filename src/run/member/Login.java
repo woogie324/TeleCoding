@@ -16,7 +16,7 @@ import dto.MemberDTO;
 import member.MemberManager;
 import run.ChangePanel;
 import run.MainFrame;
-import run.admin.AdminMain;
+import run.admin.Admin_MainPg;
 
 public class Login extends JPanel {
 
@@ -122,7 +122,7 @@ public class Login extends JPanel {
             public void actionPerformed(ActionEvent e) {
             	MemberDTO memberInfo = memberManager.login(idText.getText(), pwText.getText());
             	if(idText.getText().equals("admin") && pwText.getText().equals("admin")) {
-            		ChangePanel.changePanel(mf, login, new AdminMain(mf));
+            		ChangePanel.changePanel(mf, login, new Admin_MainPg(mf));
             	} else {
 	            	if(memberInfo != null) {
 	            		JOptionPane.showMessageDialog(null, "로그인 성공");

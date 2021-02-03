@@ -127,7 +127,6 @@ public class ProductDAO {
 					
 				while(true) {
 					ProductDTO update = (ProductDTO) objIn.readObject();
-//					System.out.println((ProductDTO) objIn.readObject());
 					if(update.getProductNum().equals(pDTO.getProductNum())) {
 						list.add(pDTO);
 					}else {
@@ -175,7 +174,6 @@ public class ProductDAO {
 		}
 		
 		readDB();
-		System.out.println("수정 완료 되었습니다.");
 		
 	}	// prodUpdate 종료
 	
@@ -239,7 +237,6 @@ public class ProductDAO {
 		}
 
 		readDB();
-		System.out.println("삭제 완료 되었습니다.");
 
 	}	//prodRemove 종료
 
