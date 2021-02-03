@@ -15,6 +15,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import dto.MemberDTO;
+import run.MainFrame;
+import run.ChangePanel;
+
 import java.awt.Image;
 
 
@@ -26,11 +31,10 @@ public class MainWinBuild extends JPanel {
 	private MainFrame mf;
 
 	
-	
-	
-	public MainWinBuild(MainFrame mf) {
+	public MainWinBuild(MainFrame mf, MemberDTO memberInfo) {
 		this.mf = mf;
 		this.superPanel = this;
+		
 		
 		superPanel.setBackground(Color.WHITE);
 		superPanel.setBounds(0, 0, 1200, 800);
@@ -172,13 +176,15 @@ public class MainWinBuild extends JPanel {
 		
 		
 		
-		/* 클릭시 넘어가는거 해봄 */
+		
+		
+		/* 클릭시 영화 정보 및 예매하기로 넘어가는 마우스액션 */
 		movie1.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 			}
 		});
 		
@@ -186,7 +192,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 
 			}
 		});
@@ -194,7 +200,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -202,7 +208,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -210,7 +216,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -218,12 +224,12 @@ public class MainWinBuild extends JPanel {
 		
 		
 		
-		
+		/* 클릭 시 예정 영화 정보로 넘어가는 마우스액션 */
 		schMovies1.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -231,7 +237,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -239,17 +245,19 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
-				
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
+
 			}
 		});
 		
 		
+		
+		/* 뒤로가기 마우스액션 */
 		bakBtn.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
 				
 			}
 		});

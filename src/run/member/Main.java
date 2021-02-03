@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import dto.MemberDTO;
+import movieInformation.testgui.MainWinBuild;
 import run.ChangePanel;
 import run.MainFrame;
 import run.member.payment.Paymentrun;
@@ -136,7 +137,7 @@ public class Main extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, main, 소개페이지);
+				ChangePanel.changePanel(mf, main, new MainWinBuild(mf, memberInfo));
 			}
 		});
 	}

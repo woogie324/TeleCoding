@@ -17,6 +17,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import run.member.payment.Paymentrun;
+import dto.MemberDTO;
+import run.MainFrame;
+import run.ChangePanel;
+
 public class MovieListWinBuild extends JPanel{
 
 
@@ -31,10 +36,12 @@ public class MovieListWinBuild extends JPanel{
 
 
 	
-	public MovieListWinBuild(MainFrame mf) {
+	public MovieListWinBuild(MainFrame mf, MemberDTO memberInfo) {
 		this.mf = mf;
 		this.superPanel = this;
-
+		/* 예매하기 넘어가기 */
+		
+		
 		superPanel.setBackground(Color.WHITE);
 		superPanel.setBounds(0, 0, 1200, 800);
 		superPanel.setLayout(null);
@@ -142,6 +149,16 @@ public class MovieListWinBuild extends JPanel{
 		RsvPanel.add(RsvBtn);
 		RsvBtn.setBackground(Color.MAGENTA);
 		
+		/* 예매하기로 넘어가는 마우스액션 */
+		RsvBtn.addMouseListener(new  MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ChangePanel.changePanel(mf, superPanel, new Paymentrun(mf, memberInfo));
+			}
+		});
+		
+		
 		
 		/* 뒤로가기 버튼 */
 		JButton bakBtn = new JButton("뒤로 가기");
@@ -149,26 +166,16 @@ public class MovieListWinBuild extends JPanel{
 		mainPanel.add(bakBtn);
 		bakBtn.setBackground(Color.LIGHT_GRAY);
 
-		
+		/* 뒤로가기 마우스액션 */
 		bakBtn.addMouseListener(new  MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MainWinBuild(mf));
+				ChangePanel.changePanel(mf, superPanel, new MainWinBuild(mf, memberInfo));
 				
 			}
 		});
 
-		RsvBtn.addMouseListener(new  MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MainWinBuild(mf));
-				
-			}
-		});
-		
-		
 
 		
 		superPanel.add(mainPanel);
