@@ -16,8 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import dto.ExMovieInfoDTO;
 import dto.MemberDTO;
+import dto.NowMovieInfoDTO;
 import run.MainFrame;
+import run.member.Main;
 import run.ChangePanel;
 
 import java.awt.Image;
@@ -70,27 +73,27 @@ public class MainWinBuild extends JPanel {
 		btnAscMovies.setBackground(Color.MAGENTA);
 
 		JLabel ascMovies1 = new JLabel();
-		ascMovies1.setIcon(new ImageIcon("movimages/movie2.jpg"));
+		ascMovies1.setIcon(new ImageIcon("movimages\\movie2.jpg"));
 		ascMovies1.setBounds(57, 35, 150, 165);
 		ascMovPanel.add(ascMovies1);
 		
 		JLabel ascMovies2 = new JLabel();
-		ascMovies2.setIcon(new ImageIcon("movimages/movie5.jpg"));
+		ascMovies2.setIcon(new ImageIcon("movimages\\movie5.jpg"));
 		ascMovies2.setBounds(219, 35, 150, 165);
 		ascMovPanel.add(ascMovies2);
 		
 		JLabel ascMovies3 = new JLabel();
-		ascMovies3.setIcon(new ImageIcon("movimages/movie4.jpg"));
+		ascMovies3.setIcon(new ImageIcon("movimages\\movie4.jpg"));
 		ascMovies3.setBounds(381, 35, 150, 165);
 		ascMovPanel.add(ascMovies3);
 
 		JLabel ascMovies4 = new JLabel();
-		ascMovies4.setIcon(new ImageIcon("movimages/movie3.jpg"));
+		ascMovies4.setIcon(new ImageIcon("movimages\\movie3.jpg"));
 		ascMovies4.setBounds(543, 35, 150, 165);
 		ascMovPanel.add(ascMovies4);
 		
 		JLabel ascMovies5 = new JLabel();
-		ascMovies5.setIcon(new ImageIcon("movimages/movie1.jpg"));
+		ascMovies5.setIcon(new ImageIcon("movimages\\movie1.jpg"));
 		ascMovies5.setBounds(705, 35, 150, 165);
 		ascMovPanel.add(ascMovies5);
 		
@@ -112,27 +115,27 @@ public class MainWinBuild extends JPanel {
 		
 		/* 영화 라벨들 */
 		JLabel movie1 = new JLabel();
-		movie1.setIcon(new ImageIcon("movimages/movie1.jpg"));
+		movie1.setIcon(new ImageIcon("movimages\\movie1.jpg"));
 		movie1.setBounds(57, 35, 150, 165);
 		movMainPanel.add(movie1);
 		
 		JLabel movie2 = new JLabel();
-		movie2.setIcon(new ImageIcon("movimages/movie2.jpg"));
+		movie2.setIcon(new ImageIcon("movimages\\movie2.jpg"));
 		movie2.setBounds(219, 35, 150, 165);
 		movMainPanel.add(movie2);
 		
 		JLabel movie3 = new JLabel();
-		movie3.setIcon(new ImageIcon("movimages/movie3.jpg"));
+		movie3.setIcon(new ImageIcon("movimages\\movie3.jpg"));
 		movie3.setBounds(381, 35, 150, 165);
 		movMainPanel.add(movie3);
 		
 		JLabel movie4 = new JLabel();
-		movie4.setIcon(new ImageIcon("movimages/movie4.jpg"));
+		movie4.setIcon(new ImageIcon("movimages\\movie4.jpg"));
 		movie4.setBounds(543, 35, 150, 165);
 		movMainPanel.add(movie4);
 		
 		JLabel movie5 = new JLabel();
-		movie5.setIcon(new ImageIcon("movimages/movie5.jpg"));
+		movie5.setIcon(new ImageIcon("movimages\\movie5.jpg"));
 		movie5.setBounds(705, 35, 150, 165);
 		movMainPanel.add(movie5);
 		
@@ -153,17 +156,17 @@ public class MainWinBuild extends JPanel {
 		
 		/* 예정영화 라벨들 */
 		JLabel schMovies1 = new JLabel();
-		schMovies1.setIcon(new ImageIcon("movimages/schmovie1.jpg"));
+		schMovies1.setIcon(new ImageIcon("movimages\\schmovie1.jpg"));
 		schMovies1.setBounds(218, 35, 150, 165);
 		schMovMainPanel.add(schMovies1);
 		
 		JLabel schMovies2 = new JLabel();
-		schMovies2.setIcon(new ImageIcon("movimages/schmovie2.jpg"));
+		schMovies2.setIcon(new ImageIcon("movimages\\schmovie2.jpg"));
 		schMovies2.setBounds(380, 35, 150, 165);
 		schMovMainPanel.add(schMovies2);
 		
 		JLabel schMovies3 = new JLabel();
-		schMovies3.setIcon(new ImageIcon("movimages/schmovie3.jpg"));
+		schMovies3.setIcon(new ImageIcon("movimages\\schmovie3.jpg"));
 		schMovies3.setBounds(542, 35, 150, 165);
 		schMovMainPanel.add(schMovies3);
 
@@ -229,7 +232,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
+				ChangePanel.changePanel(mf, superPanel, new SchMovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -237,7 +240,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
+				ChangePanel.changePanel(mf, superPanel, new SchMovieListWinBuild(mf, memberInfo));
 				
 			}
 		});
@@ -245,7 +248,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
+				ChangePanel.changePanel(mf, superPanel, new SchMovieListWinBuild(mf, memberInfo));
 
 			}
 		});
@@ -257,7 +260,7 @@ public class MainWinBuild extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new MovieListWinBuild(mf, memberInfo));
+				ChangePanel.changePanel(mf, superPanel, new Main(mf, memberInfo));
 				
 			}
 		});

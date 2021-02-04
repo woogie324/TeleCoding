@@ -1,7 +1,6 @@
 package movieInformation.testgui;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -10,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -19,48 +17,41 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import dao.MovieInfoDAO;
 import run.member.payment.Paymentrun;
 import dto.ExMovieInfoDTO;
 import dto.MemberDTO;
 import dto.NowMovieInfoDTO;
-import dto.PaymentDTO;
-import member.MemberManager;
+import movieinfo.MovieInfoManager;
 import run.MainFrame;
 import run.ChangePanel;
 
-import movieinfo.MovieInfoManager;
-import movieinfo.Charting;
-
-public class MovieListWinBuild extends JPanel{
+public class SchMovieListWinBuild extends JPanel{
 
 
 	private JPanel superPanel;
 	private MainFrame mf;
 	private MovieInfoManager movieManager = new MovieInfoManager();
 
-	
 	private JTextField title;
-	private JTextArea story;
+	private JTextField story;
 	private JTextField actor;
 	private JTextField director;
-	private JTextField vsitor;
-	private JTextField img;
+
 
 	
-	public MovieListWinBuild(MainFrame mf, MemberDTO memberInfo) {
+	public SchMovieListWinBuild(MainFrame mf, MemberDTO memberInfo) {
 		this.mf = mf;
 		this.superPanel = this;
 
 		
 		String NickName = memberInfo.getName();
 
+		
 		superPanel.setBackground(Color.WHITE);
 		superPanel.setBounds(0, 0, 1200, 800);
 		superPanel.setLayout(null);
@@ -97,7 +88,7 @@ public class MovieListWinBuild extends JPanel{
 		title.setEditable(false);
 		title.setBounds(12, 10, 96, 21);
 		title.setBackground(Color.MAGENTA);
-//		title.setText("영화제목 :");
+		title.setText("영화제목 :");
 		infoPanel1.add(title);
 		title.setColumns(10);
 		
@@ -106,19 +97,10 @@ public class MovieListWinBuild extends JPanel{
 		director.setEditable(false);
 		director.setBounds(12, 51, 96, 21);
 		director.setBackground(Color.MAGENTA);
-//		director.setText("감독 :");
+		director.setText("감독 :");
 		infoPanel1.add(director);
 		director.setColumns(10);
-		
-		vsitor = new JTextField();
-		vsitor.setFont(new Font("굴림", Font.PLAIN, 15));
-		vsitor.setEditable(false);
-		vsitor.setBounds(12, 96, 96, 21);
-		vsitor.setBackground(Color.MAGENTA);
-		vsitor.setText("관람수 : "); 
-		infoPanel1.add(vsitor);
-		vsitor.setColumns(10);
-		
+
 		
 		/* 영화 정보 : 줄거리, 배우 */
 		JPanel infoPanel2 = new JPanel();
@@ -127,27 +109,26 @@ public class MovieListWinBuild extends JPanel{
 		mainPanel.add(infoPanel2);
 		infoPanel2.setLayout(null);
 		
-//		story = new JTextField();
-//		story.setFont(new Font("굴림", Font.PLAIN, 15));
-//		story.setEditable(false);
-////		story.setBounds(12, 10, 96, 21);
-//		story.setBounds(12, 10, 150, 150);
-//		story.setBackground(Color.MAGENTA);
-////		story.setText("줄거리 :");
-//		infoPanel2.add(story);
-//		story.setColumns(10);
+		story = new JTextField();
+		story.setFont(new Font("굴림", Font.PLAIN, 15));
+		story.setEditable(false);
+		story.setBounds(12, 10, 96, 21);
+		story.setBackground(Color.MAGENTA);
+		story.setText("줄거리 :");
+		infoPanel2.add(story);
+		story.setColumns(10);
 		
 		actor = new JTextField();
 		actor.setFont(new Font("굴림", Font.PLAIN, 15));
 		actor.setEditable(false);
-//		actor.setBounds(12, 200, 96, 21);
-		actor.setBounds(12, 200, 150, 150);
+		actor.setBounds(12, 200, 96, 21);
 		actor.setBackground(Color.MAGENTA);
-//		actor.setText("배우 :");
+		actor.setText("배우 :");
 		infoPanel2.add(actor);
 		actor.setColumns(10);
 		
-
+		
+		
 		/* 영화별 이미지(바뀌어야 됨) */
 		JPanel movieImg = new JPanel();
 		
@@ -155,28 +136,6 @@ public class MovieListWinBuild extends JPanel{
 		movieImg.setBounds(10, 54, 150, 165);
 		mainPanel.add(movieImg);
 		
-		
-		/* 예매 버튼 */
-		JPanel RsvPanel = new JPanel();
-		RsvPanel.setBounds(922, 460, 252, 165);
-		mainPanel.add(RsvPanel);
-		RsvPanel.setLayout(null);
-
-		JButton RsvBtn = new JButton("(현재작)예매");
-		RsvBtn.setFont(new Font("굴림", Font.PLAIN, 25));
-		RsvBtn.setToolTipText("");
-		RsvBtn.setBounds(12, 5, 228, 150);
-		RsvPanel.add(RsvBtn);
-		RsvBtn.setBackground(Color.MAGENTA);
-		
-		/* 예매하기로 넘어가는 마우스액션 */
-		RsvBtn.addMouseListener(new  MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, superPanel, new Paymentrun(mf, memberInfo));
-			}
-		});
 		
 		
 		
@@ -197,46 +156,70 @@ public class MovieListWinBuild extends JPanel{
 		});
 
 		
-		// JList
-		ArrayList<NowMovieInfoDTO> NowMovieInfo = movieManager.NowShow();
 		
-
+		
+		
+		
+		
+		
+//		// JList
+		ArrayList<ExMovieInfoDTO> ExMovieInfo = movieManager.ExShow();
+		
 		@SuppressWarnings("unchecked")
 		JList<Object> list = new JList<Object>(movieManager.NowShow().toArray());
+		list.setVisibleRowCount(20);
+		list.setBackground(Color.WHITE);
 		
-		list.addListSelectionListener(new ListSelectionListener() {
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				for(NowMovieInfoDTO a : NowMovieInfo){					
-					
-					story = new JTextArea();
-					story.setFont(new Font("굴림", Font.PLAIN, 15));
-					story.setEditable(false);
-//					story.setBounds(12, 10, 96, 21);
-					story.setBounds(12, 10, 150, 150);
-					story.setBackground(Color.MAGENTA);
-//					story.setText("줄거리 :");
-					infoPanel2.add(story);
-					story.setColumns(10);
-					story.setText(a.getStory());
-					
-					
-//					story.setBounds(12, 10, 150, 150);
-					actor.setText(a.getActor());
-					title.setText(a.getTitle());
-					director.setText(a.getDirector());
-//					vsitor.setText(a.getShowNum());
-				}
-			}
-		});
+		list.setBorder(BorderFactory.createLineBorder(Color.black, 1));
 
+		mainPanel.add(infoPanel2);
+		
+		superPanel.add(mainPanel);
+		
+//		list.addListSelectionListener(new ListSelectionListener() {
+			
+//			@Override
+//			public void valueChanged(ListSelectionEvent e) {
+//				String[] payTime = ((String) list.getSelectedValue()).split(",");
+//				String time = payTime[1];
+////				
+//				
+//				for(ExMovieInfoDTO p : ExMovieInfo) {
+//					if(time.equals(p.getTitle())) {
+//						title.setText(p.getTitle());
+//						story.setText(p.getStory());
+//						actor.setText(p.getActor());
+//						director.setText(p.getDirector());
+////						vsitor.setCaret(p.getShowNum());
+////						img.set
+//					}
+//				}
+//			}
+//		});
 		
 		
 		
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 		
 		superPanel.add(mainPanel);
 		
