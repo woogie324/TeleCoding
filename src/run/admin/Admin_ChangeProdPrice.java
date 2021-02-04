@@ -42,8 +42,14 @@ public class Admin_ChangeProdPrice extends JFrame{
 		cppf.getContentPane().add(panel);
 
 		JButton btn1 = new JButton("수정");
-		btn1.setLocation(158, 99);
+		btn1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		btn1.setLocation(99, 99);
 		btn1.setSize(98, 30);
+		
+		JButton btnClose = new JButton("닫기");
+		btnClose.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		btnClose.setLocation(227, 99);
+		btnClose.setSize(98, 30);
 
 		JLabel result = new JLabel("");
 		result.setFont(new Font("맑은 고딕", Font.BOLD, 15));
@@ -67,19 +73,21 @@ public class Admin_ChangeProdPrice extends JFrame{
 				pDAO.prodUpdate(b);
 				
 				result.setText(text1.getText() + "원으로 수정 완료 되었습니다.");
-				btn1.setText("닫기");
-				btn1.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						cppf.dispose();
-					}
-				});
+				btn1.setEnabled(false);
+				}
+			});
+		
+		btnClose.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cppf.dispose();
 			}
 		});
-
+		
 		panel.add(result);
 		panel.add(btn1);
+		panel.add(btnClose);
 		cppf.setLocationRelativeTo(null);
 		cppf.setResizable(false);
 		cppf.setVisible(true);

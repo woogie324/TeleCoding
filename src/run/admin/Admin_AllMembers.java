@@ -3,6 +3,8 @@ package run.admin;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
@@ -22,6 +24,7 @@ import dao.MemberDAO;
 import dto.MemberDTO;
 import run.ChangePanel;
 import run.MainFrame;
+import javax.swing.JButton;
 
 public class Admin_AllMembers extends JPanel {
 	
@@ -95,27 +98,23 @@ public class Admin_AllMembers extends JPanel {
 			
 		//=======================뒤로가기 버튼 =====================
 		
-			JLabel btnBack = new JLabel();
-			btnBack.setForeground(new Color(0, 0, 0));
-			btnBack.setHorizontalAlignment(SwingConstants.CENTER);
-			btnBack.setIcon(new ImageIcon("C:\\Users\\욱's\\Desktop\\miniPRJ_SELF\\miniproject-movie_0203-1\\img\\back-1.png"));
-			btnBack.setBounds(200, 104, 70, 70);
+			JButton btnBack = new JButton("");
+			btnBack.setIcon(new ImageIcon("img\\back-1.png"));
+			btnBack.setBounds(200, 115, 70, 70);
 			this.add(btnBack);
 			
-			btnBack.addMouseListener(new MouseAdapter() {
+			btnBack.addActionListener(new ActionListener() {
+				
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void actionPerformed(ActionEvent e) {
 					
 					ChangePanel.changePanel(mf, printAllMem, new Admin_MainPg(mf));
-				};
+					
+				}
 			});
 			
-		
 		this.add(table);
 		this.add(pgTitle);
 		
-		
-		
 	}
-
 }

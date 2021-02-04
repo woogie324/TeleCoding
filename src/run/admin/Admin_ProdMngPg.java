@@ -63,24 +63,39 @@ public class Admin_ProdMngPg extends JPanel {
 		btn4.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		btn4.setBounds(750, 570, 200, 50);
 		
-		JTextField selected = new JTextField(20);
-		selected.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		selected.setSize(243, 30);
-		selected.setLocation(465, 592);
-		selected.setEditable(false);
-		this.add(selected);
-		
 		JLabel label = new JLabel("선택된 항목 : ");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		label.setSize(120, 30);
-		label.setLocation(346, 592);
+		label.setLocation(346, 542);
 		this.add(label);
+		
+		JTextField selected = new JTextField(20);
+		selected.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		selected.setSize(243, 30);
+		selected.setLocation(465, 542);
+		selected.setEditable(false);
+		this.add(selected);
+		
+		JLabel label2 = new JLabel("가격 : ");
+		label2.setHorizontalAlignment(SwingConstants.RIGHT);
+		label2.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		label2.setSize(120, 30);
+		label2.setLocation(346, 590);
+		this.add(label2);
+		
+		JTextField selected2 = new JTextField(20);
+		selected2.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		selected2.setSize(243, 30);
+		selected2.setLocation(465, 590);
+		selected2.setEditable(false);
+		this.add(selected2);
+		
 		
 		JLabel btnBack = new JLabel();
 		btnBack.setForeground(new Color(0, 0, 0));
 		btnBack.setHorizontalAlignment(SwingConstants.CENTER);
-		btnBack.setIcon(new ImageIcon("C:\\Users\\욱's\\Desktop\\miniPRJ_SELF\\miniproject-movie_0203-1\\img\\back-1.png"));
+		btnBack.setIcon(new ImageIcon("img\\back-1.png"));
 		btnBack.setBounds(346, 98, 70, 70);
 		this.add(btnBack);
 		
@@ -101,7 +116,7 @@ public class Admin_ProdMngPg extends JPanel {
 			prodList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			prodList.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 			
-			prodList.setBounds(346,186,362,382);
+			prodList.setBounds(346,186,362,343);
 			
 			this.add(prodList);
 		
@@ -112,7 +127,14 @@ public class Admin_ProdMngPg extends JPanel {
 				
 				@Override
 				public void valueChanged(ListSelectionEvent e) {
+					
 					selected.setText((String)prodList.getSelectedValue());
+					
+					for(ProductDTO a : pDAO.readDB()) {
+						if(prodList.getSelectedValue().equals(a.getProductNum()+". "+a.getProductName())) {
+							selected2.setText(Integer.toString(a.getProductPrice()) + "원");
+						}
+					}
 					
 				}
 			});
