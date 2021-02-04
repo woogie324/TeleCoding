@@ -161,7 +161,7 @@ public class Join extends JPanel{
 		white.add(btnJoin);
 		
 		JLabel back = new JLabel("");
-		back.setIcon(new ImageIcon("C:\\miniPRJ_movie\\telecoding\\img\\back-1.png"));
+		back.setIcon(new ImageIcon("img\\back-1.png"));
 		back.setFont(new Font("굴림", Font.BOLD, 16));
 		back.setBounds(12, 10, 50, 50);
 		white.add(back);

@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -72,9 +73,10 @@ public class PayHistory extends JPanel{
 		arrow2.setBounds(377, 439, 46, 70);
 		white.add(arrow2);
 		
-		JLabel back = new JLabel("<-Back");
+		JLabel back = new JLabel("");
+		back.setIcon(new ImageIcon("img\\back-1.png"));
 		back.setFont(new Font("굴림", Font.BOLD, 16));
-		back.setBounds(12, 10, 71, 28);
+		back.setBounds(12, 10, 50, 50);
 		white.add(back);
 		
 		

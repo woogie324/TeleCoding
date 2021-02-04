@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -64,9 +65,10 @@ public class MemberInfoMod extends JPanel{
 		title.setBounds(208, 79, 200, 41);
 		white.add(title);
 		
-		JLabel back = new JLabel("<-Back");
+		JLabel back = new JLabel("");
+		back.setIcon(new ImageIcon("img\\back-1.png"));
 		back.setFont(new Font("굴림", Font.BOLD, 16));
-		back.setBounds(12, 10, 71, 28);
+		back.setBounds(12, 10, 50, 50);
 		white.add(back);
 		
 		// Label 
