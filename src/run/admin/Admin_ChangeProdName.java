@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 
 import dao.ProductDAO;
 import dto.ProductDTO;
+import java.awt.Color;
 
 public class Admin_ChangeProdName extends JFrame {
 	
@@ -25,6 +26,7 @@ public class Admin_ChangeProdName extends JFrame {
 		cpnf.setBounds(200,200,420,200);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		JLabel label1 = new JLabel("변경된 상품명을 입력하세요 : ");
 		label1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		label1.setBounds(42, 13, 330, 36);

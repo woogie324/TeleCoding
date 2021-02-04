@@ -102,7 +102,7 @@ public class Admin_MainPg extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-//				ChangePanel.changePanel(mf, adminMain, 영화관리);
+				ChangePanel.changePanel(mf, adminMain, new Admin_MovieMng(mf));
 			}
 		});
 		

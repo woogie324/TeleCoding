@@ -32,6 +32,8 @@ public class Admin_AllMembers extends JPanel {
 	private JPanel printAllMem;
 	
 	public Admin_AllMembers(MainFrame mf) {
+		setBorder(new LineBorder(Color.LIGHT_GRAY));
+		setBackground(Color.WHITE);
 		this.mf = mf;
 		this.printAllMem = this;
 		
@@ -40,9 +42,9 @@ public class Admin_AllMembers extends JPanel {
 		
 		JLabel pgTitle = new JLabel("전체 회원 목록 조회");
 		pgTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		pgTitle.setFont(new Font("맑은 고딕", Font.BOLD, 28));
-		pgTitle.setLocation(0, 115);
-		pgTitle.setSize(1200, 46);
+		pgTitle.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		pgTitle.setLocation(0, 110);
+		pgTitle.setSize(1200, 100);
 		
 		
 		MemberDAO dao = new MemberDAO();
@@ -75,7 +77,7 @@ public class Admin_AllMembers extends JPanel {
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		table.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
-		table.setBounds(200, 197, 800, 400);
+		table.setBounds(200, 263, 800, 400);
 		table.setRowHeight(25);
 		table.setPreferredSize(new Dimension(800,400));
 		table.setFillsViewportHeight(true);
@@ -98,15 +100,15 @@ public class Admin_AllMembers extends JPanel {
 			
 		//=======================뒤로가기 버튼 =====================
 		
-			JButton btnBack = new JButton("");
+			JLabel btnBack = new JLabel("");
 			btnBack.setIcon(new ImageIcon("img\\back-1.png"));
-			btnBack.setBounds(200, 115, 70, 70);
+			btnBack.setBounds(40, 130, 50, 50);
 			this.add(btnBack);
 			
-			btnBack.addActionListener(new ActionListener() {
+			btnBack.addMouseListener(new MouseAdapter() {
 				
 				@Override
-				public void actionPerformed(ActionEvent e) {
+				public void mouseClicked(MouseEvent e) {
 					
 					ChangePanel.changePanel(mf, printAllMem, new Admin_MainPg(mf));
 					
@@ -115,6 +117,11 @@ public class Admin_AllMembers extends JPanel {
 			
 		this.add(table);
 		this.add(pgTitle);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("img\\toplabel-1.png"));
+		lblNewLabel.setBounds(0, 0, 1200, 100);
+		add(lblNewLabel);
 		
 	}
 }

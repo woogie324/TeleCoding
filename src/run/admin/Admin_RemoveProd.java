@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 
 import dao.ProductDAO;
 import dto.ProductDTO;
+import java.awt.Color;
 
 public class Admin_RemoveProd extends JFrame{
 	
@@ -24,11 +25,12 @@ public class Admin_RemoveProd extends JFrame{
 		rempf.setBounds(200,200,420,200);
 
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 
 		JLabel removeQ = new JLabel(selected + "(을)를 삭제하시겠습니까?");
 		removeQ.setHorizontalAlignment(SwingConstants.CENTER);
 		removeQ.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		removeQ.setBounds(0, 13, 414, 21);
+		removeQ.setBounds(0, 13, 414, 31);
 
 		JButton okay = new JButton("확인");
 		okay.setFont(new Font("맑은 고딕", Font.BOLD, 15));
