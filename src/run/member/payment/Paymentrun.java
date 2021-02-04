@@ -75,11 +75,11 @@ public class Paymentrun extends JPanel {
 	
 	
 	public Paymentrun(MainFrame mf, MemberDTO memberInfo) {
-		nickName =  memberInfo.getName();
+		nickName =  memberInfo.getId();
 		this.mf = mf;
 		this.setSize(1200, 801);
 		this.Paymentrun = this;
-		System.out.println(nickName);
+
 		try {
 			img = ImageIO.read(new File("img/movie.jpg"));
 		} catch (IOException e) {
@@ -539,7 +539,6 @@ public class Paymentrun extends JPanel {
 				String List = (String) timeList.get(i);
 				btn4[i].setText(List); 
 				movieNumber2 = 4;
-				System.out.println(date);
 				btn3[0].setText("선택완료");
 				btn3[1].setText("선택완료");
 				btn3[2].setText("선택완료");
