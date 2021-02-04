@@ -102,7 +102,7 @@ public class PaymentDAO {
 				/* 기존에 파일이 없을 경우 */
 				objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("DB/payment.txt")));
 			}
-			PaymentDTO paDto = new PaymentDTO("송준원", movie, area, date, time, seat, viewer, ticketPrice, product,productPrice, cardName, cardDiscount, pay, toDay);
+			PaymentDTO paDto = new PaymentDTO(nickName, movie, area, date, time, seat, viewer, ticketPrice, product,productPrice, cardName, cardDiscount, pay, toDay);
 			objOut.writeObject(paDto);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

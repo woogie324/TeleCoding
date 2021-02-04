@@ -12,6 +12,7 @@ public class MainFrame extends JFrame{
 		
 		new Login(this);
 		
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
