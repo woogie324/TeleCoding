@@ -39,36 +39,36 @@ public class Admin_MainPg extends JPanel{
 		white.setLayout(null);
 		
 		JPanel memberPanel = new JPanel();
-		memberPanel.setBounds(25, 300, 300, 218);
+		memberPanel.setBounds(24, 369, 300, 150);
 		white.add(memberPanel);
 		memberPanel.setLayout(null);
 		
 		JLabel memberLabel = new JLabel("회원 관리");
-		memberLabel.setFont(new Font("굴림", Font.BOLD, 40));
+		memberLabel.setBounds(0, 25, 300, 100);
+		memberLabel.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		memberLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		memberLabel.setBounds(0, 10, 300, 198);
 		memberPanel.add(memberLabel);
 		
 		JPanel moviePanel = new JPanel();
-		moviePanel.setBounds(350, 300, 300, 218);
+		moviePanel.setBounds(350, 369, 300, 150);
 		white.add(moviePanel);
 		moviePanel.setLayout(null);
 		
 		JLabel movieLabel = new JLabel("영화 관리");
-		movieLabel.setFont(new Font("굴림", Font.BOLD, 40));
+		movieLabel.setBounds(0, 25, 300, 100);
+		movieLabel.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		movieLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		movieLabel.setBounds(0, 10, 300, 198);
 		moviePanel.add(movieLabel);
 		
 		JPanel payPanel = new JPanel();
-		payPanel.setBounds(675, 300, 300, 218);
+		payPanel.setBounds(675, 369, 300, 150);
 		white.add(payPanel);
 		payPanel.setLayout(null);
 		
 		JLabel payLabel = new JLabel("상품 관리");
+		payLabel.setBounds(0, 25, 300, 100);
 		payLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		payLabel.setFont(new Font("굴림", Font.BOLD, 40));
-		payLabel.setBounds(0, 10, 300, 198);
+		payLabel.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		payPanel.add(payLabel);
 		
 		JLabel logo = new JLabel();
@@ -84,7 +84,7 @@ public class Admin_MainPg extends JPanel{
 		adminMain.add(userName);
 		
 		JButton btnLogout = new JButton("로그아웃");
-		btnLogout.setFont(new Font("굴림", Font.BOLD, 13));
+		btnLogout.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		btnLogout.setBackground(Color.WHITE);
 		btnLogout.setForeground(Color.BLACK);
 		btnLogout.setBounds(100, 54, 121, 36);

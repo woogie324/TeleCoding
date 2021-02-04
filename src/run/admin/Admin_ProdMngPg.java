@@ -51,33 +51,33 @@ public class Admin_ProdMngPg extends JPanel {
 		this.add(prodMngTitle);
 		
 		JButton btn1 = new JButton("상품명 수정");
-		btn1.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		btn1.setBounds(659, 264, 200, 50);
+		btn1.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		btn1.setBounds(702, 260, 200, 50);
 		
 		JButton btn2 = new JButton("상품가격 수정");
-		btn2.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		btn2.setBounds(659, 360, 200, 50);
+		btn2.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		btn2.setBounds(702, 356, 200, 50);
 		
 		JButton btn3 = new JButton("상품 삭제");
-		btn3.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		btn3.setBounds(659, 458, 200, 50);
+		btn3.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		btn3.setBounds(702, 454, 200, 50);
 		
 		JButton btn4 = new JButton("상품 목록 초기화");
-		btn4.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		btn4.setBounds(659, 557, 200, 50);
+		btn4.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		btn4.setBounds(702, 553, 200, 50);
 		
 		JLabel label = new JLabel("선택된 항목 : ");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		label.setSize(137, 30);
-		label.setLocation(234, 620);
+		label.setLocation(277, 616);
 		this.add(label);
 		
 		JTextField selected = new JTextField(20);
 		selected.setBackground(Color.WHITE);
 		selected.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		selected.setSize(243, 30);
-		selected.setLocation(385, 621);
+		selected.setLocation(428, 617);
 		selected.setEditable(false);
 		this.add(selected);
 		
@@ -85,14 +85,14 @@ public class Admin_ProdMngPg extends JPanel {
 		label2.setHorizontalAlignment(SwingConstants.RIGHT);
 		label2.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		label2.setSize(137, 30);
-		label2.setLocation(234, 668);
+		label2.setLocation(277, 664);
 		this.add(label2);
 		
 		JTextField selected2 = new JTextField(20);
 		selected2.setBackground(Color.WHITE);
 		selected2.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		selected2.setSize(243, 30);
-		selected2.setLocation(385, 669);
+		selected2.setLocation(428, 665);
 		selected2.setEditable(false);
 		this.add(selected2);
 		
@@ -113,7 +113,7 @@ public class Admin_ProdMngPg extends JPanel {
 			prodList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			prodList.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 			
-			prodList.setBounds(234,264,394,343);
+			prodList.setBounds(277,260,394,343);
 			
 			this.add(prodList);
 		

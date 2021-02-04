@@ -22,6 +22,8 @@ import javax.swing.JTextField;
 import member.MemberManager;
 import run.ChangePanel;
 import run.MainFrame;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class Join extends JPanel{
 
@@ -53,43 +55,50 @@ public class Join extends JPanel{
 		
 		JLabel title = new JLabel("회원가입");
 		title.setFont(new Font("굴림", Font.BOLD, 30));
-		title.setBounds(246, 79, 127, 41);
+		title.setBounds(246, 70, 127, 50);
 		white.add(title);
 		
 		// Label 
 		JLabel idLabel = new JLabel("아이디");
+		idLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		idLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		idLabel.setBounds(110, 148, 98, 25);
+		idLabel.setBounds(97, 148, 111, 25);
 		white.add(idLabel);
 		
 		JLabel pwLabel = new JLabel("비밀번호");
+		pwLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		pwLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		pwLabel.setBounds(110, 185, 98, 25);
+		pwLabel.setBounds(97, 185, 111, 25);
 		white.add(pwLabel);
 		
 		JLabel pwCheckLabel = new JLabel("비밀번호 확인");
+		pwCheckLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		pwCheckLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		pwCheckLabel.setBounds(110, 220, 98, 25);
+		pwCheckLabel.setBounds(97, 220, 111, 25);
 		white.add(pwCheckLabel);
 		
 		JLabel nameLabel = new JLabel("이름");
+		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		nameLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		nameLabel.setBounds(110, 255, 98, 25);
+		nameLabel.setBounds(97, 255, 111, 25);
 		white.add(nameLabel);
 		
 		JLabel birthLabel = new JLabel("생년월일");
+		birthLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		birthLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		birthLabel.setBounds(110, 290, 98, 25);
+		birthLabel.setBounds(97, 290, 111, 25);
 		white.add(birthLabel);
 		
 		JLabel genderLabel = new JLabel("성별");
+		genderLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		genderLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		genderLabel.setBounds(110, 325, 98, 25);
+		genderLabel.setBounds(97, 325, 111, 25);
 		white.add(genderLabel);
 		
 		JLabel addrLabel = new JLabel("주소");
+		addrLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		addrLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		addrLabel.setBounds(110, 360, 98, 25);
+		addrLabel.setBounds(97, 360, 111, 25);
 		white.add(addrLabel);
 		
 		// Text
@@ -151,9 +160,10 @@ public class Join extends JPanel{
 		btnJoin.setBounds(110, 412, 396, 25);
 		white.add(btnJoin);
 		
-		JLabel back = new JLabel("<-Back");
+		JLabel back = new JLabel("");
+		back.setIcon(new ImageIcon("C:\\miniPRJ_movie\\telecoding\\img\\back-1.png"));
 		back.setFont(new Font("굴림", Font.BOLD, 16));
-		back.setBounds(12, 10, 71, 28);
+		back.setBounds(12, 10, 50, 50);
 		white.add(back);
 		
 		// Anonymous Class

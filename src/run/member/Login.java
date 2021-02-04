@@ -17,6 +17,7 @@ import member.MemberManager;
 import run.ChangePanel;
 import run.MainFrame;
 import run.admin.Admin_MainPg;
+import javax.swing.SwingConstants;
 
 public class Login extends JPanel {
 
@@ -49,13 +50,15 @@ public class Login extends JPanel {
 
 		
 		JLabel idLabel = new JLabel("ID");
+		idLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		idLabel.setFont(new Font("굴림", Font.BOLD, 20));
-		idLabel.setBounds(191, 153, 31, 25);
+		idLabel.setBounds(182, 153, 41, 25);
 		white.add(idLabel);
 		
 		JLabel pwLabel = new JLabel("PW");
+		pwLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pwLabel.setFont(new Font("굴림", Font.BOLD, 20));
-		pwLabel.setBounds(191, 204, 32, 25);
+		pwLabel.setBounds(181, 204, 42, 25);
 		white.add(pwLabel);
 		
 		// Text
@@ -135,6 +138,6 @@ public class Login extends JPanel {
             
         });
 		
-		mf.add(login);
+		mf.getContentPane().add(login);
 	}
 }
