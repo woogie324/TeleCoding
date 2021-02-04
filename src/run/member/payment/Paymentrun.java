@@ -836,7 +836,6 @@ public class Paymentrun extends JPanel {
 		card4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(movie+ " "+movidArea+ " "+date+ " "+ time + " "+seat+ " "+ticketPrice+ " "+cardName+ " "+cardDiscount+ " "+pay+ " "+toDay+" "+product+" "+productPrice);
 				dao.print(nickName, movie, movidArea, date, time, seat, viewer+"", ticketPrice, product, productPrice+"", cardName, cardDiscount+"", pay, toDay);
 				ChangePanel.changePanel(mf, Paymentrun, new Main(mf, memberInfo));
 			}

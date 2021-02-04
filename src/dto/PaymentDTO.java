@@ -201,4 +201,7 @@ public class PaymentDTO implements Serializable{
 				+ cardDiscount + ", pay=" + pay + ", toDay=" + toDay + "]";
 	}
 
+
+	
+
 }

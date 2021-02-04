@@ -9,7 +9,8 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 import dto.PaymentDTO;
-import dto.ProductDTO;
+
+
 
 public class PaymentDateTrue {
 
@@ -27,6 +28,7 @@ public class PaymentDateTrue {
 			
 			int i = 0;
 			while(true) {
+				
 				PaymentDTO m = (PaymentDTO)objIn.readObject();
 				System.out.println(m);
 				ProductList.add(m);
@@ -49,10 +51,10 @@ public class PaymentDateTrue {
 		}
 		
 		/* 읽어온 데이터를 담은 배열을 출력해 보자 */
-		System.out.println("==============");
-		for(int i = 0; i < ProductList.size(); i++) {
-			System.out.println(ProductList.get(i));
-		}
+//		System.out.println("==============");
+//		for(int i = 0; i < ProductList.size(); i++) {
+//			System.out.println(ProductList.get(i));
+//		}
 
 		
 	}
