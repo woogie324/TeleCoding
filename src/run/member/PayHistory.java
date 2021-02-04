@@ -162,7 +162,8 @@ public class PayHistory extends JPanel{
 		
 		// JList
 		ArrayList<PaymentDTO> payment = memberManager.showPayment(memberInfo);
-		
+		System.out.println(payment);
+		System.out.println(memberManager.showPayment(memberInfo));
 		@SuppressWarnings("unchecked")
 		JList<Object> list = new JList<Object>(memberManager.showMovie(memberInfo).toArray());
 		list.setVisibleRowCount(20);
@@ -191,9 +192,9 @@ public class PayHistory extends JPanel{
 					if(time.equals(p.getToDay())) {
 						movieTitle.setText(p.getMovie());
 						placeTimeSeat.setText(p.getArea()+","+p.getTime()+","+p.getSeat());
-						moviePrice.setText(p.getViewer()+" = "+p.getTicketPrice()+"원");
+						moviePrice.setText(p.getViewer()+"명 = "+p.getTicketPrice()+"원");
 						productName.setText(p.getProduct());
-						productPrice.setText(p.getProductPrice());
+						productPrice.setText(p.getProductPrice()+"원");
 						discount.setText(p.getCardDiscount() + "%");
 						totalPrice.setText(p.getPay()+"원");
 						paymentTime.setText(time);
