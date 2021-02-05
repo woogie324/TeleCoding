@@ -167,7 +167,6 @@ public class PaymentDAO {
 			int i = 0;
 			while (true) {
 				ConditionDTO m = (ConditionDTO) objIn.readObject();
-
 				MovieList.add(m);
 				movieTitle.add(m.getMovieTitle());
 				area.add(m.getArea());
