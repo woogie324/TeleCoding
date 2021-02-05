@@ -219,6 +219,7 @@ public class Paymentrun extends JPanel {
 		JButton card2 = new JButton();
 		JButton card3 = new JButton();
 		JButton card4 = new JButton();
+		JButton card5 = new JButton();
 		card1=new JButton("카카오톡");//버튼 초기화
 		card1.setBounds(width,hight, 150, 30); //버튼 크기,위치 지정
 		width += 150;
@@ -242,13 +243,21 @@ public class Paymentrun extends JPanel {
 		Paymentrun.add(card4);
 		card4.setBackground(Color.WHITE);
 		
-		card4=new JButton("결재하기");//버튼 초기화
-		card4.setBounds(240,hight+80, 150, 30); //버튼 크기,위치 지정
-		Paymentrun.add(card4);
-		card4.setBackground(Color.WHITE);
+		card5=new JButton("결재하기");//버튼 초기화
+		card5.setBounds(240,hight+80, 150, 30); //버튼 크기,위치 지정
+		Paymentrun.add(card5);
+		card5.setBackground(Color.WHITE);
+		
+		
+		JButton back = new JButton();
+		back=new JButton("뒤로가기");//버튼 초기화
+		back.setBounds(480,hight+80, 150, 30); //버튼 크기,위치 지정
+		Paymentrun.add(back);
+		back.setBackground(Color.WHITE);
+		
+		
 		Paymentrun.add(panel);
 		
-	
 		setVisible(true);
 		/* 영화 버튼선택 하기 */
 		btn1[0].addActionListener(new ActionListener() {
@@ -832,11 +841,23 @@ public class Paymentrun extends JPanel {
 			}
 		});
 	
-		card4.addActionListener(new ActionListener() {
+		card5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String movieNull = null;
+				if(!(movie.equals(movieNull)&&date.equals(movieNull)&&cardName.equals(movieNull)&&seat.equals(movieNull))) {
 				dao.print(nickName, movie, movidArea, date, time, seat, viewer+"", ticketPrice, product, productPrice+"", cardName, cardDiscount+"", pay, toDay);
 				ChangePanel.changePanel(mf, Paymentrun, new Main(mf, memberInfo));
+				}else {
+					System.out.println("선택이 다 완료 안되었습니다");
+				}
+			}
+		});
+		back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Paymentrun, new Main(mf, memberInfo));
+
 			}
 		});
 		
