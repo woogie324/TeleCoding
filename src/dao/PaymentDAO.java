@@ -54,39 +54,7 @@ public class PaymentDAO {
 	private int sum;
 	
 
-	
-	public void Paymentrun1(String movieName,int moviePrice) {
-		movieName1 = movieName;
-		moviePrice1 = moviePrice;
-	}
-	public void Paymentrun2(String movieArea) {
-		movieArea1 = movieArea;
-	}
-	public void Paymentrun3(String moviedata) {
-		moviedata1 = moviedata;
-	}
-	public void Paymentrun4(String movieTime) {
-		movieTime1 = movieTime;
-	}
-	public void Paymentrun5(String movieSeat) {
-		movieSeat1 += movieSeat + " ";
-		moviePrice1 += sum;
-		System.out.println(movieName1+moviePrice1+"zzz");
-	}
-	public void Paymentrun6(String product,int productPrice) {
-		product += product + " ";
-		productPrice += productPrice;
-		
-	}
-	public void toDay() {
-		pay = ticketPrice + productPrice;
-		pay = (int)(pay - (pay * (cardDiscount / 100)));
-		
-		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Calendar time = Calendar.getInstance();
-		toDay = format1.format(time.getTime())+"";
-		
-	}
+
 	
 	/* 영화정보 입출력 */
 	public void print(String nickName, String movie, String area, String date, String time, String seat, String viewer,
@@ -120,7 +88,7 @@ public class PaymentDAO {
 	}
 	
 	
-	/* 상품목록 */
+	/* 상품목록 입출력*/
 	public ArrayList ProductListName() {
 
 		ObjectInputStream objIn = null;
@@ -203,6 +171,7 @@ public class PaymentDAO {
 		return movieTitle2;
 	}
 
+	/* 영화 이름 받아오기 */
 	public ArrayList MovieListArea(String getmovieTitle) {
 		ArrayList areaList = new ArrayList();
 		int countArea = 0;
@@ -222,7 +191,8 @@ public class PaymentDAO {
 		}
 		return areaList;
 	}
-
+	
+	/* 영화 가격 받아오기 */
 	public int moviePrice(int choiceMovie) {
 		int price;
 		price = 7000;
@@ -230,7 +200,7 @@ public class PaymentDAO {
 	}
 
 //	date
-	/* time */
+	/* 날짜 */
 	public ArrayList movieDate(String getmovieTitle, String movidArea) {
 		ArrayList dateList = new ArrayList();
 		int count = 0;
@@ -254,7 +224,7 @@ public class PaymentDAO {
 		}
 		return dateList;
 	}
-
+	/* 시간 */
 	public ArrayList movieTime(String movie, String movidArea, String movieDate) {
 		ArrayList timeList = new ArrayList();
 		int count = 0;
@@ -317,14 +287,6 @@ public class PaymentDAO {
 		return seatList;
 	}
 
-	public int movieSeatPrice(int choiceNumber, int price) {
-
-		int moviePrice = 0;
-
-		moviePrice += choiceNumber * price;
-		return moviePrice;
-	}
-
 	/* product */
 	public String productTitle(String choiceProduct, int choiceProductPrice, int choiceConut) {
 		int ProductPrice = (int) ProductListPrice.get(choiceProductPrice - 1);
@@ -335,25 +297,6 @@ public class PaymentDAO {
 		priceProduct += price;
 		return productchoice;
 	}
-
-	
-
-	/* card */
-	public void cardDiscount(int choiceCard) {
-		String[] cardListName = { "카카오뱅크", "우리은행", "기업은행", "삼성페이" };
-		Double[] cardListDiscount = { 3.0, 5.0, 1.0, 2.0 };
-		cardDiscount = cardListDiscount[choiceCard];
-		cardName = cardListName[choiceCard];
-		pay = ticketPrice + productPrice;
-		pay = (int)(pay - (pay * (cardDiscount / 100)));
-		
-		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Calendar time = Calendar.getInstance();
-		toDay = format1.format(time.getTime())+"";
-	}
-
-
-
 
 
 }
